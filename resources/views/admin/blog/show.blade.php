@@ -1,18 +1,17 @@
 @extends('admin.layouts.layout')
 
 @section('blog')
-active
+    active
 @endsection
 
 @section('content')
-
-<!-- MAIN -->
+    <!-- MAIN -->
     <main>
         <div class="table-data">
             <div class="order">
                 <div class="head">
                     <h3> Mentor ma'lumotlari</h3>
-                    <a class="create__btn" href="{{route('admin.blog.index')}}"> <i class='bx bx-arrow-back'></i>Qaytish</a>
+                    <a class="create__btn" href="{{ route('admin.blog.index') }}"> <i class='bx bx-arrow-back'></i>Qaytish</a>
 
                 </div>
 
@@ -33,7 +32,7 @@ active
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Ma'lumot  : </p>
+                                    <p>Ma'lumot : </p>
                                 </td>
                                 <td><b>{!! $blog->description !!}</b></td>
                             </tr>
@@ -42,14 +41,14 @@ active
                                     <p>Rasm : </p>
                                 </td>
                                 <td><img src="/images/{{ $blog->img }}" alt="" width="100px"></td>
-                            </tr>                        
-            
+                            </tr>
+
                             <tr>
-                                    <td>
-                                        <p>Vaqt : </p>
-                                    </td>
-                                    <td><b>{{ $blog->created_at }}</b></td>
-                                </tr>
+                                <td>
+                                    <p>Vaqt : </p>
+                                </td>
+                                <td><b>{{ $blog->created_at }}</b></td>
+                            </tr>
 
 
                         </tbody>
@@ -60,6 +59,5 @@ active
         </div>
     </main>
 
-<!-- MAIN -->
-
+    <!-- MAIN -->
 @endsection

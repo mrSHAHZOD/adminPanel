@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\NewsController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,23 @@ use App\Http\Controllers\Api\NewsController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+  
 });
 
-
-/* Route::get('blog',[BlogController::class, 'index']);
-Route::get('blog/{post}',[BlogController::class, 'show']);
- */
 Route::apiResource('blog',BlogController::class ); 
 Route::apiResource('news',NewsController::class ); 
+
+
+// routes/api.php
+
+/* Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::apiResource('blog',BlogController::class ); 
+    Route::apiResource('news',NewsController::class ); 
+
+ Boshqa tasdiqlangan marshrutlaringizni bu erga qo'shing
+}); */
+
+Route::post('/login', 'AuthController@login');
